@@ -40,6 +40,7 @@ pip install -r requirements.txt
 
 ## Folder Structure
 
+```bash
 .
 +-- CASIA-database/
 |   +-- 001_1_1.jpg
@@ -65,6 +66,9 @@ pip install -r requirements.txt
 |   +-- eval_mmu2.py
 |   +-- requirements.txt
 |   +-- verify.py
+```
+
+
 
 * Folder <code> CASIA-database</code> includes original eye images. These system uses these images as the input.
 
