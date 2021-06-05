@@ -84,13 +84,13 @@ pip install -r requirements.txt
 
    -  File <code>eval-casia1.py</code> is used to execute a Machine Learning Classification Algorithm that determines the Maximum fscore, Best eye_threshold and Best threshold for the CASIA1 Database. This process does not have to be repeated but you can re-run to check the following results, 
 
-      ![CASIA1-optimal.png](./sample_images/CASIA1-optimal.png)
+      ![CASIA1-optimal.png](./sample_images/casia1_eval.png)
 
       
 
       File <code>eval-mmu2.py</code> is used to execute a Machine Learning Classification Algorithm that determines the Optimal Maximum fscore, Best eye_threshold and Best threshold for the images in the MMU2 Database. This process does not have to be repeated but you can re-run to check the following results.
 
-      ![mmu2-optimal](./sample_images/MMU2-optimal.png)
+      ![mmu2-optimal](./sample_images/mmu2_eval.png)
 
       
 
