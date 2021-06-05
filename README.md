@@ -106,9 +106,9 @@ python enroll-casia1.py
 
 In the above example, we are enrolling the CASIA1 Database into the system. This encodes the specially selected images using regex and the outputs are stored in a templates database sub-folder, in the case of this example a CASIA1 sub-folder.
 
-![python enroll-casia1.py](./sample_images/Screenshot from 2021-06-05 00-49-10.png)
+![python enroll-casia1.py](./sample_images/enroll.png)
 
-###To Verify an image
+### To verify an image
 
 ```bash
 python verify.py --file ../CASIA1/3/003_1_1.jpg --temp_dir ./templates/CASIA1/
@@ -122,7 +122,7 @@ The default threshold used for matching is 0.38.
 
 The outcome of the above code looks like this,
 
-![python verify.py](./sample_images/Screenshot from 2021-06-05 00-26-12.png)
+![python verify.py](./sample_images/verify.png)
 
 The image above shows that the image file 003_1_1.jpg matches 2 samples. 
 
