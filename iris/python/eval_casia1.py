@@ -55,7 +55,7 @@ identities = glob(os.path.join(CASIA1_DIR, "**"))
 identities = sorted([os.path.basename(identity) for identity in identities])
 
 # Edited to reduce number of sample sets to 10. For simplicity and testing
-n_identities = len(identities[:10])
+n_identities = len(identities)
 print("Number of identities:", n_identities)
 
 
@@ -64,7 +64,7 @@ files_dict = {}
 image_files = []
 
 # Edited to reduce number of sample sets to 10. For simplicity and testing
-for identity in identities[:10]:
+for identity in identities:
     files = glob(os.path.join(CASIA1_DIR, identity, "*.*"))
     shuffle(files)
     files_dict[identity] = files[:N_IMAGES]

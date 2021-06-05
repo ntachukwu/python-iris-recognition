@@ -130,4 +130,4 @@ The image above shows that the image file 003_1_1.jpg matches 2 samples.
 
 ## License
 
-MIT
+[MIT](./LICENSE)
