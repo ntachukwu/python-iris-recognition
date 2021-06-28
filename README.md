@@ -35,6 +35,7 @@ cd python-iris-recognition
 Install requirements
 
 ```bash
+cd iris/python
 pip install -r requirements.txt
 ```
 
