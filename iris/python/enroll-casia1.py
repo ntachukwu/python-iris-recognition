@@ -38,28 +38,31 @@ def pool_func(file):
     out_file = os.path.join(args.temp_dir, "%s.mat" % (basename))
     savemat(out_file, mdict={'template': template, 'mask': mask})
 
+def main():
+    # -----------------------------------------------------------------------------
+    # Execution
+    # -----------------------------------------------------------------------------
+    start = time()
 
-# -----------------------------------------------------------------------------
-# Execution
-# -----------------------------------------------------------------------------
-start = time()
+    # Check the existence of temp_dir
+    if not os.path.exists(args.temp_dir):
+        print("makedirs", args.temp_dir)
+        os.makedirs(args.temp_dir)
 
-# Check the existence of temp_dir
-if not os.path.exists(args.temp_dir):
-    print("makedirs", args.temp_dir)
-    os.makedirs(args.temp_dir)
+    # Get list of files for enrolling template, just "xxx_1_x.jpg" files are selected
+    files = glob(os.path.join(args.data_dir, "**/*/*_1_*.jpg"), recursive=True)
+    files = files
+    n_files = len(files)
+    print("Number of files for enrolling:", n_files)
 
-# Get list of files for enrolling template, just "xxx_1_x.jpg" files are selected
-files = glob(os.path.join(args.data_dir, "**/*/*_1_*.jpg"), recursive=True)
-files = files
-n_files = len(files)
-print("Number of files for enrolling:", n_files)
+    # Parallel pools to enroll templates
+    print("Start enrolling...")
+    pools = Pool(processes=args.n_cores)
+    for _ in tqdm(pools.imap_unordered(pool_func, files), total=n_files):
+        pass
 
-# Parallel pools to enroll templates
-print("Start enrolling...")
-pools = Pool(processes=args.n_cores)
-for _ in tqdm(pools.imap_unordered(pool_func, files), total=n_files):
-    pass
+    end = time()
+    print('\n>>> Enrollment time: {} [s]\n'.format(end-start))
 
-end = time()
-print('\n>>> Enrollment time: {} [s]\n'.format(end-start))
+if __name__ == '__main__':
+    main()
