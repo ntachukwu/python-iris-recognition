@@ -25,30 +25,35 @@ parser.add_argument("--thres", type=float, default=0.38,
 args = parser.parse_args()
 
 
-##-----------------------------------------------------------------------------
-##  Execution
-##-----------------------------------------------------------------------------
-# Extract feature
-start = time()
-print('>>> Start verifying {}\n'.format(args.file))
-template, mask, file = extractFeature(args.file)
+def main():
+    ##-----------------------------------------------------------------------------
+    ##  Execution
+    ##-----------------------------------------------------------------------------
+    # Extract feature
+    start = time()
+    print('>>> Start verifying {}\n'.format(args.file))
+    template, mask, file = extractFeature(args.file)
 
 
-# Matching
-result = matching(template, mask, args.temp_dir, args.thres)
+    # Matching
+    result = matching(template, mask, args.temp_dir, args.thres)
 
-if result == -1:
-	print('>>> No registered sample.')
+    if result == -1:
+        print('>>> No registered sample.')
 
-elif result == 0:
-	print('>>> No sample matched.')
+    elif result == 0:
+        print('>>> No sample matched.')
 
-else:
-	print('>>> {} samples matched (descending reliability):'.format(len(result)))
-	for res in result:
-		print("\t", res)
+    else:
+        print('>>> {} samples matched (descending reliability):'.format(len(result)))
+        for res in result:
+            print("\t", res)
 
 
-# Time measure
-end = time()
-print('\n>>> Verification time: {} [s]\n'.format(end - start))
+    # Time measure
+    end = time()
+    print('\n>>> Verification time: {} [s]\n'.format(end - start))
+
+if __name__ == '__main__':
+    # freeze_support() here if program needs to be frozen
+    main()  # execute this only when run directly, not when imported!
